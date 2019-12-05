@@ -1,4 +1,4 @@
-package elior.com.infrastructure.RetrofitDagger2Package;
+package elior.com.infrastructure.RetrofitDaggerPackage;
 
 import android.app.Application;
 

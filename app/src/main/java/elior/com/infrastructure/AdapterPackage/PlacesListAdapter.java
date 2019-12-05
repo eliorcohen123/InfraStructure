@@ -1,4 +1,4 @@
-package elior.com.infrastructure;
+package elior.com.infrastructure.AdapterPackage;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,7 +13,9 @@ import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView;
 import elior.com.infrastructure.DataAppPackage.PlaceModel;
-import elior.com.infrastructure.RetrofitDagger2Package.MyApplication;
+import elior.com.infrastructure.ClassePackage.FavoritesPlaces;
+import elior.com.infrastructure.R;
+import elior.com.infrastructure.RetrofitDaggerPackage.MyApplication;
 import elior.com.infrastructure.RoomFavoritesPackage.PlaceRepositoryFavorites;
 import elior.com.infrastructure.RoomFavoritesPackage.PlaceViewModelFavorites;
 import elior.com.infrastructure.RoomFavoritesPackage.PlacesFavorites;

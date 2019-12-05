@@ -1,4 +1,4 @@
-package elior.com.infrastructure.RetrofitDagger2Package;
+package elior.com.infrastructure.RetrofitDaggerPackage;
 
 import elior.com.infrastructure.DataAppPackage.JSONResponse;
 import retrofit2.http.GET;

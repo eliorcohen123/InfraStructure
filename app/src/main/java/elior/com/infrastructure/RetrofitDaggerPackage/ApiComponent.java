@@ -1,9 +1,9 @@
-package elior.com.infrastructure.RetrofitDagger2Package;
+package elior.com.infrastructure.RetrofitDaggerPackage;
 
 import javax.inject.Singleton;
 
 import dagger.Component;
-import elior.com.infrastructure.MainActivity;
+import elior.com.infrastructure.ClassePackage.MainActivity;
 
 @Singleton
 @Component(modules = {AppModule.class, ApiModule.class})

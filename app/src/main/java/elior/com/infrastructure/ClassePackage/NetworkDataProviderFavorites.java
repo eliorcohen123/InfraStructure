@@ -1,11 +1,11 @@
-package elior.com.infrastructure;
+package elior.com.infrastructure.ClassePackage;
 
 import android.os.AsyncTask;
 
 import java.util.ArrayList;
 
 import elior.com.infrastructure.DataAppPackage.PlaceModel;
-import elior.com.infrastructure.RetrofitDagger2Package.MyApplication;
+import elior.com.infrastructure.RetrofitDaggerPackage.MyApplication;
 import elior.com.infrastructure.RoomFavoritesPackage.IPlacesDataReceived;
 import elior.com.infrastructure.RoomFavoritesPackage.PlaceRepositoryFavorites;
 import elior.com.infrastructure.RoomFavoritesPackage.PlacesFavorites;

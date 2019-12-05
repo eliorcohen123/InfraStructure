@@ -34,6 +34,12 @@ public class PlacesFavorites implements Serializable {
     @ColumnInfo(name = "photo")
     private String mPhoto;
 
+    @ColumnInfo(name = "lat")
+    private double mLat;
+
+    @ColumnInfo(name = "lng")
+    private double mLng;
+
 
     public long getID() {
         return ID;
@@ -67,6 +73,22 @@ public class PlacesFavorites implements Serializable {
 
     public void setPhoto(String mPhoto) {
         this.mPhoto = mPhoto;
+    }
+
+    public double getLat() {
+        return mLat;
+    }
+
+    public void setLat(double mLat) {
+        this.mLat = mLat;
+    }
+
+    public double getLng() {
+        return mLng;
+    }
+
+    public void setLng(double mLng) {
+        this.mLng = mLng;
     }
 
 }

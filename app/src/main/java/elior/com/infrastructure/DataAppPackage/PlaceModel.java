@@ -8,12 +8,8 @@ public class PlaceModel implements Serializable {
     private String id;
     private String name;
     private String vicinity;
-    private String distance;
-    private double rating;
-    private int user_ratings_total;
     private List<Photos> photos;
     private Geometry geometry;
-    private OpeningHours opening_hours;
 
     public String getId() {
         return id;
@@ -39,30 +35,6 @@ public class PlaceModel implements Serializable {
         this.vicinity = vicinity;
     }
 
-    public String getDistance() {
-        return distance;
-    }
-
-    public void setDistance(String distance) {
-        this.distance = distance;
-    }
-
-    public double getRating() {
-        return rating;
-    }
-
-    public void setRating(double rating) {
-        this.rating = rating;
-    }
-
-    public int getUser_ratings_total() {
-        return user_ratings_total;
-    }
-
-    public void setUser_ratings_total(int user_ratings_total) {
-        this.user_ratings_total = user_ratings_total;
-    }
-
     public List<Photos> getPhotos() {
         return photos;
     }
@@ -77,14 +49,6 @@ public class PlaceModel implements Serializable {
 
     public void setGeometry(Geometry geometry) {
         this.geometry = geometry;
-    }
-
-    public boolean getOpening_hours() {
-        return opening_hours.isOpen_now();
-    }
-
-    public void setOpening_hours(OpeningHours opening_hours) {
-        this.opening_hours.isOpen_now();
     }
 
 }

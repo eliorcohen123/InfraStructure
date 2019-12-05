@@ -1,4 +1,4 @@
-package elior.com.infrastructure;
+package elior.com.infrastructure.ClassePackage;
 
 import android.os.Bundle;
 
@@ -11,10 +11,12 @@ import javax.inject.Inject;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import elior.com.infrastructure.AdapterPackage.PlacesListAdapter;
 import elior.com.infrastructure.DataAppPackage.JSONResponse;
 import elior.com.infrastructure.DataAppPackage.PlaceModel;
-import elior.com.infrastructure.RetrofitDagger2Package.GetDataService;
-import elior.com.infrastructure.RetrofitDagger2Package.MyApplication;
+import elior.com.infrastructure.R;
+import elior.com.infrastructure.RetrofitDaggerPackage.GetDataService;
+import elior.com.infrastructure.RetrofitDaggerPackage.MyApplication;
 import retrofit2.Retrofit;
 import rx.Observable;
 import rx.Observer;

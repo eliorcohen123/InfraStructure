@@ -1,4 +1,4 @@
-package elior.com.infrastructure;
+package elior.com.infrastructure.AdapterPackage;
 
 import android.view.View;
 import android.widget.ImageView;
@@ -6,6 +6,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
+import elior.com.infrastructure.R;
 
 public class PlaceViewHolder extends RecyclerView.ViewHolder {
 

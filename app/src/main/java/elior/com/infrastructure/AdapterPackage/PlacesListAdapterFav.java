@@ -1,4 +1,4 @@
-package elior.com.infrastructure;
+package elior.com.infrastructure.AdapterPackage;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView;
+import elior.com.infrastructure.R;
 import elior.com.infrastructure.RoomFavoritesPackage.PlacesFavorites;
 
 public class PlacesListAdapterFav extends RecyclerView.Adapter<PlaceViewHolderFav> {
@@ -32,20 +33,20 @@ public class PlacesListAdapterFav extends RecyclerView.Adapter<PlaceViewHolderFa
     public void onBindViewHolder(final PlaceViewHolderFav holder, final int position) {
         if (mPlacesFavoritesList != null) {
             current = mPlacesFavoritesList.get(position);
-            holder.name3.setText(current.getName());
-            holder.address3.setText(current.getAddress());
+            holder.name1.setText(current.getName());
+            holder.address1.setText(current.getAddress());
             Glide.with(mInflater.getContext())
                     .load("https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="
                             + current.getPhoto() +
                             "&key=" + mInflater.getContext().getString(R.string.api_key_search))
-                    .into(holder.image3);
-            holder.relativeLayout3.setOnClickListener(v -> {
+                    .into(holder.image1);
+            holder.relativeLayout1.setOnClickListener(v -> {
 
             });
 
         } else {
             // Covers the case of data not being ready yet.
-            holder.name3.setText("No Places");
+            holder.name1.setText("No Places");
         }
     }
 
