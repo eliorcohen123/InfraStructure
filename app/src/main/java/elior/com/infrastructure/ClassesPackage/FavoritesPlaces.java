@@ -1,4 +1,4 @@
-package elior.com.infrastructure.ClassePackage;
+package elior.com.infrastructure.ClassesPackage;
 
 import android.os.Bundle;
 
@@ -9,7 +9,6 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import elior.com.infrastructure.AdapterPackage.PlacesListAdapterFav;
-import elior.com.infrastructure.ClassePackage.NetworkDataProviderFavorites;
 import elior.com.infrastructure.DataAppPackage.PlaceModel;
 import elior.com.infrastructure.R;
 import elior.com.infrastructure.RoomFavoritesPackage.IPlacesDataReceived;

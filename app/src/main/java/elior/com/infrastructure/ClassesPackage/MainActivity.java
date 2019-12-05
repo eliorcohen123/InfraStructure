@@ -1,4 +1,4 @@
-package elior.com.infrastructure.ClassePackage;
+package elior.com.infrastructure.ClassesPackage;
 
 import android.os.Bundle;
 
