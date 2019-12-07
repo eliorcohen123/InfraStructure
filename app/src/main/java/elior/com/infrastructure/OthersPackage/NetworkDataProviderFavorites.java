@@ -26,7 +26,7 @@ public class NetworkDataProviderFavorites {
     private class GetPlacesByLocationAsyncTask extends AsyncTask<String, Integer, IPlacesDataReceived> {
 
         private ArrayList<PlaceModel> mPlaceModels = new ArrayList<PlaceModel>();
-        private ArrayList<PlacesFavorites> listPlaces = new ArrayList<>();
+        private ArrayList<PlacesFavorites> listPlaces = new ArrayList<PlacesFavorites>();
         private IPlacesDataReceived mIPlacesDataReceived;
         private PlaceRepositoryFavorites placeRepository;
 
