@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView;
-import elior.com.infrastructure.DataAppPackage.PlaceModel;
+import elior.com.infrastructure.ModelPackage.PlaceModel;
 import elior.com.infrastructure.ClassesPackage.FavoritesPlaces;
 import elior.com.infrastructure.R;
 import elior.com.infrastructure.RetrofitDaggerPackage.MyApplication;

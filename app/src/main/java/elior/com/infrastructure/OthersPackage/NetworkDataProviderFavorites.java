@@ -1,10 +1,10 @@
-package elior.com.infrastructure.ClassesPackage;
+package elior.com.infrastructure.OthersPackage;
 
 import android.os.AsyncTask;
 
 import java.util.ArrayList;
 
-import elior.com.infrastructure.DataAppPackage.PlaceModel;
+import elior.com.infrastructure.ModelPackage.PlaceModel;
 import elior.com.infrastructure.RetrofitDaggerPackage.MyApplication;
 import elior.com.infrastructure.RoomFavoritesPackage.IPlacesDataReceived;
 import elior.com.infrastructure.RoomFavoritesPackage.PlaceRepositoryFavorites;
@@ -14,10 +14,10 @@ public class NetworkDataProviderFavorites {
 
     public void getPlacesByLocation(IPlacesDataReceived resultListener_) {
 
-        //go get data from google API
+        // go get data from google API
         // take time....
-        //more time...
-        //Data received -> resultListener_
+        // more time...
+        // Data received -> resultListener_
 
         GetPlacesByLocationAsyncTask getPlacesByLocationAsyncTask = new GetPlacesByLocationAsyncTask(resultListener_);
         getPlacesByLocationAsyncTask.execute();
@@ -25,8 +25,10 @@ public class NetworkDataProviderFavorites {
 
     private class GetPlacesByLocationAsyncTask extends AsyncTask<String, Integer, IPlacesDataReceived> {
 
-        private ArrayList<PlaceModel> mPlaceModels;
+        private ArrayList<PlaceModel> mPlaceModels = new ArrayList<PlaceModel>();
+        private ArrayList<PlacesFavorites> listPlaces = new ArrayList<>();
         private IPlacesDataReceived mIPlacesDataReceived;
+        private PlaceRepositoryFavorites placeRepository;
 
         public GetPlacesByLocationAsyncTask(IPlacesDataReceived iPlacesDataReceived) {
             mIPlacesDataReceived = iPlacesDataReceived;
@@ -34,9 +36,7 @@ public class NetworkDataProviderFavorites {
 
         @Override
         protected IPlacesDataReceived doInBackground(String... urls) {
-            mPlaceModels = new ArrayList<PlaceModel>();
-            PlaceRepositoryFavorites placeRepository = new PlaceRepositoryFavorites(MyApplication.getApplication());
-            ArrayList<PlacesFavorites> listPlaces = new ArrayList<>();
+            placeRepository = new PlaceRepositoryFavorites(MyApplication.getApplication());
             for (PlaceModel placeModel : mPlaceModels) {
                 try {
                     PlacesFavorites place = new PlacesFavorites(placeModel.getName(), placeModel.getVicinity(), placeModel.getPhotos().get(0).getPhoto_reference());

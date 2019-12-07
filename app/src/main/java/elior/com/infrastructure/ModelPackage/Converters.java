@@ -1,4 +1,4 @@
-package elior.com.infrastructure.DataAppPackage;//package com.eliorcohen123456.locationprojectroom.DataAppPackage;
+package elior.com.infrastructure.ModelPackage;//package com.eliorcohen123456.locationprojectroom.DataAppPackage;
 //
 //import androidx.room.TypeConverter;
 //

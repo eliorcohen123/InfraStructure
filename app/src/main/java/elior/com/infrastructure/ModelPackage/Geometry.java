@@ -1,4 +1,4 @@
-package elior.com.infrastructure.DataAppPackage;
+package elior.com.infrastructure.ModelPackage;
 
 import java.io.Serializable;
 
