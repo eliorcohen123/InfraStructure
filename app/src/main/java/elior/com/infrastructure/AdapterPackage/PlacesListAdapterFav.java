@@ -44,6 +44,7 @@ public class PlacesListAdapterFav extends RecyclerView.Adapter<PlaceViewHolderFa
             } catch (Exception e) {
 
             }
+
             holder.relativeLayout1.setOnClickListener(v -> {
 
             });
