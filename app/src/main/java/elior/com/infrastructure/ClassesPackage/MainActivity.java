@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private PlacesListAdapter placesListAdapter;
-    private ArrayList<PlaceModel> mMovieListInternet;
+    private ArrayList<PlaceModel> mPlaceList;
     @Inject
     Retrofit retrofit;
 
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void getData() {
         GetDataService apiService = retrofit.create(GetDataService.class);
-        Observable<JSONResponse> observable = apiService.getAllMovies("/maps/api/place/nearbysearch/json?location=31.4,34.1&radius=50000&sensor=true&rankby=prominence&types=&keyword=&key="
+        Observable<JSONResponse> observable = apiService.getAllPlaces("/maps/api/place/nearbysearch/json?location=31.4,34.1&radius=50000&sensor=true&rankby=prominence&types=&keyword=&key="
                 + getString(R.string.api_key_search))
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread());
@@ -71,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void generateDataList(List<PlaceModel> photoList) {
-        mMovieListInternet = new ArrayList<PlaceModel>(photoList);
-        placesListAdapter = new PlacesListAdapter(this, mMovieListInternet);
+        mPlaceList = new ArrayList<PlaceModel>(photoList);
+        placesListAdapter = new PlacesListAdapter(this, mPlaceList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(placesListAdapter);
     }
