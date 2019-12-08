@@ -30,7 +30,7 @@ public class PlacesListAdapterFav extends RecyclerView.Adapter<PlaceViewHolderFa
     }
 
     @Override
-    public void onBindViewHolder(final PlaceViewHolderFav holder, final int position) {
+    public void onBindViewHolder(PlaceViewHolderFav holder, final int position) {
         if (mPlacesFavoritesList != null) {
             current = mPlacesFavoritesList.get(position);
             holder.name1.setText(current.getName());

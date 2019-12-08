@@ -41,7 +41,7 @@ public class PlacesListAdapter extends RecyclerView.Adapter<PlaceViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(final PlaceViewHolder holder, final int position) {
+    public void onBindViewHolder(PlaceViewHolder holder, final int position) {
         if (mPlacesSearchList != null) {
             current = mPlacesSearchList.get(position);
             holder.name1.setText(current.getName());
@@ -49,7 +49,7 @@ public class PlacesListAdapter extends RecyclerView.Adapter<PlaceViewHolder> {
             try {
                 Glide.with(mInflater.getContext())
                         .load("https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="
-                                + current.getPhotos().get(0).getPhoto_reference() +
+                                + current.getPhotos() +
                                 "&key=" + mInflater.getContext().getString(R.string.api_key_search))
                         .into(holder.image1);
             } catch (Exception e) {
@@ -59,7 +59,7 @@ public class PlacesListAdapter extends RecyclerView.Adapter<PlaceViewHolder> {
             placeRepositorySearch = new PlaceRepositoryFavorites(MyApplication.getApplication());
             for (PlaceModel placeModel : mPlacesSearchList) {
                 try {
-                    PlacesFavorites place = new PlacesFavorites(placeModel.getName(), placeModel.getVicinity(), placeModel.getPhotos().get(0).getPhoto_reference());
+                    PlacesFavorites place = new PlacesFavorites(placeModel.getName(), placeModel.getVicinity(), placeModel.getPhotos());
                     listPlaces.add(place);
                 } catch (Exception e) {
 

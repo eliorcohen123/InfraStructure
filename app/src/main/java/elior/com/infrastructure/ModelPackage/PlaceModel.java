@@ -35,20 +35,28 @@ public class PlaceModel implements Serializable {
         this.vicinity = vicinity;
     }
 
-    public List<Photos> getPhotos() {
-        return photos;
+    public String getPhotos() {
+        return photos.get(0).getPhoto_reference();
     }
 
-    public void setPhotos(List<Photos> photos) {
-        this.photos = photos;
+    public void setPhotos(String photos) {
+        this.photos.get(0).setPhoto_reference(photos);
     }
 
-    public Geometry getGeometry() {
-        return geometry;
+    public double getLat() {
+        return geometry.getLocation().getLat();
     }
 
-    public void setGeometry(Geometry geometry) {
-        this.geometry = geometry;
+    public void setLat(double lat) {
+        this.geometry.getLocation().setLat(lat);
+    }
+
+    public double getLng() {
+        return geometry.getLocation().getLng();
+    }
+
+    public void setLng(double lng) {
+        this.geometry.getLocation().setLng(lng);
     }
 
 }

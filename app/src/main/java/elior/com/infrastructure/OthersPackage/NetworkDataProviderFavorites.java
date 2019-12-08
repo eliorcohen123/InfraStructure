@@ -39,7 +39,7 @@ public class NetworkDataProviderFavorites {
             placeRepository = new PlaceRepositoryFavorites(MyApplication.getApplication());
             for (PlaceModel placeModel : mPlaceModels) {
                 try {
-                    PlacesFavorites place = new PlacesFavorites(placeModel.getName(), placeModel.getVicinity(), placeModel.getPhotos().get(0).getPhoto_reference());
+                    PlacesFavorites place = new PlacesFavorites(placeModel.getName(), placeModel.getVicinity(), placeModel.getPhotos());
                     listPlaces.add(place);
                 } catch (Exception e) {
 
