@@ -26,6 +26,8 @@ public class PlacesListAdapter extends RecyclerView.Adapter<PlaceViewHolder> {
     private List<PlaceModel> mPlacesSearchList;
     private PlaceModel current;
     private PlaceViewModelFavorites placeViewModelSearch;
+    private PlaceRepositoryFavorites placeRepositorySearch;
+    private ArrayList<PlacesFavorites> listPlaces = new ArrayList<>();
 
     public PlacesListAdapter(Context context, List<PlaceModel> placesSearchList) {
         mInflater = LayoutInflater.from(context);
@@ -47,15 +49,14 @@ public class PlacesListAdapter extends RecyclerView.Adapter<PlaceViewHolder> {
             try {
                 Glide.with(mInflater.getContext())
                         .load("https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="
-                                + current.getPhotos() +
+                                + current.getPhotos().get(0).getPhoto_reference() +
                                 "&key=" + mInflater.getContext().getString(R.string.api_key_search))
                         .into(holder.image1);
             } catch (Exception e) {
 
             }
 
-            PlaceRepositoryFavorites placeRepositorySearch = new PlaceRepositoryFavorites(MyApplication.getApplication());
-            ArrayList<PlacesFavorites> listPlaces = new ArrayList<>();
+            placeRepositorySearch = new PlaceRepositoryFavorites(MyApplication.getApplication());
             for (PlaceModel placeModel : mPlacesSearchList) {
                 try {
                     PlacesFavorites place = new PlacesFavorites(placeModel.getName(), placeModel.getVicinity(), placeModel.getPhotos().get(0).getPhoto_reference());
@@ -64,6 +65,7 @@ public class PlacesListAdapter extends RecyclerView.Adapter<PlaceViewHolder> {
 
                 }
             }
+
             placeViewModelSearch = new PlaceViewModelFavorites(MyApplication.getApplication());
             placeViewModelSearch.deleteAll();
             placeRepositorySearch.insertPlace(listPlaces);

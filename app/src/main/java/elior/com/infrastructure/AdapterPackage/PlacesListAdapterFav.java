@@ -35,11 +35,15 @@ public class PlacesListAdapterFav extends RecyclerView.Adapter<PlaceViewHolderFa
             current = mPlacesFavoritesList.get(position);
             holder.name1.setText(current.getName());
             holder.address1.setText(current.getAddress());
-            Glide.with(mInflater.getContext())
-                    .load("https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="
-                            + current.getPhoto() +
-                            "&key=" + mInflater.getContext().getString(R.string.api_key_search))
-                    .into(holder.image1);
+            try {
+                Glide.with(mInflater.getContext())
+                        .load("https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="
+                                + current.getPhoto() +
+                                "&key=" + mInflater.getContext().getString(R.string.api_key_search))
+                        .into(holder.image1);
+            } catch (Exception e) {
+
+            }
             holder.relativeLayout1.setOnClickListener(v -> {
 
             });
@@ -62,10 +66,6 @@ public class PlacesListAdapterFav extends RecyclerView.Adapter<PlaceViewHolderFa
         if (mPlacesFavoritesList != null)
             return mPlacesFavoritesList.size();
         else return 0;
-    }
-
-    public PlacesFavorites getPlaceAtPosition(int position) {
-        return mPlacesFavoritesList.get(position);
     }
 
 }
