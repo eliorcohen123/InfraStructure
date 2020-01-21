@@ -48,7 +48,6 @@ public class PlacesListAdapterFav extends RecyclerView.Adapter<PlaceViewHolderFa
             holder.relativeLayout1.setOnClickListener(v -> {
 
             });
-
         } else {
             // Covers the case of data not being ready yet.
             holder.name1.setText("No Places");
