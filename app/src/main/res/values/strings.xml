@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">InfraStructure</string>
-    <string name="api_key_search">AIzaSyCiH1NZGzqJE2T_X5CphQD3iazzrjJbL4A</string>
+    <string name="api_key_search">API_KEY</string>
 </resources>
