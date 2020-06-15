@@ -2,20 +2,16 @@ package elior.com.infrastructure.ClassesPackage;
 
 import android.os.Bundle;
 
-import java.util.ArrayList;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import elior.com.infrastructure.AdapterPackage.PlacesListAdapterFav;
-import elior.com.infrastructure.ModelPackage.PlaceModel;
 import elior.com.infrastructure.OthersPackage.NetworkDataProviderFavorites;
 import elior.com.infrastructure.R;
-import elior.com.infrastructure.RoomFavoritesPackage.IPlacesDataReceived;
 import elior.com.infrastructure.RoomFavoritesPackage.PlaceViewModelFavorites;
 
-public class FavoritesPlaces extends AppCompatActivity implements IPlacesDataReceived {
+public class FavoritesPlaces extends AppCompatActivity {
 
     private PlaceViewModelFavorites mPlacesViewModelFavorites;
     private NetworkDataProviderFavorites networkDataProviderFavorites;
@@ -38,7 +34,7 @@ public class FavoritesPlaces extends AppCompatActivity implements IPlacesDataRec
     }
 
     private void getData() {
-        networkDataProviderFavorites.getPlacesByLocation(this);
+        networkDataProviderFavorites.getPlacesByLocation();
     }
 
     private void myRecyclerView() {
@@ -51,11 +47,7 @@ public class FavoritesPlaces extends AppCompatActivity implements IPlacesDataRec
         }
 
         mPlacesViewModelFavorites = ViewModelProviders.of(this).get(PlaceViewModelFavorites.class);
-    }
 
-    @Override
-    public void onPlacesDataReceived(ArrayList<PlaceModel> results_) {
-        // pass data result to mAdapterFavorites
         mPlacesViewModelFavorites.getAllPlaces().observe(this, placesFavorites -> mAdapterFavorites.setPlaces(placesFavorites));
     }
 

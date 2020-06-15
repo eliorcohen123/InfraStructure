@@ -22,7 +22,7 @@ public class PlaceViewModelFavorites extends AndroidViewModel {
         return mAllPlacesFavorites;
     }
 
-    public void insertPlace(PlacesFavorites placesFavorites) {
+    public void insertPlace(List<PlacesFavorites> placesFavorites) {
         placeRepositoryFavorites.insertPlace(placesFavorites);
     }
 

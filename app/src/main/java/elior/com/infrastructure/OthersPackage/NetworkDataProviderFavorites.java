@@ -6,37 +6,36 @@ import java.util.ArrayList;
 
 import elior.com.infrastructure.ModelPackage.PlaceModel;
 import elior.com.infrastructure.RetrofitDaggerPackage.MyApplication;
-import elior.com.infrastructure.RoomFavoritesPackage.IPlacesDataReceived;
 import elior.com.infrastructure.RoomFavoritesPackage.PlaceRepositoryFavorites;
+import elior.com.infrastructure.RoomFavoritesPackage.PlaceViewModelFavorites;
 import elior.com.infrastructure.RoomFavoritesPackage.PlacesFavorites;
 
 public class NetworkDataProviderFavorites {
 
-    public void getPlacesByLocation(IPlacesDataReceived resultListener_) {
+    public void getPlacesByLocation() {
 
         // go get data from google API
         // take time....
         // more time...
         // Data received -> resultListener_
 
-        GetPlacesByLocationAsyncTask getPlacesByLocationAsyncTask = new GetPlacesByLocationAsyncTask(resultListener_);
+        GetPlacesByLocationAsyncTask getPlacesByLocationAsyncTask = new GetPlacesByLocationAsyncTask();
         getPlacesByLocationAsyncTask.execute();
     }
 
-    private class GetPlacesByLocationAsyncTask extends AsyncTask<String, Integer, IPlacesDataReceived> {
+    private static class GetPlacesByLocationAsyncTask extends AsyncTask<String, Integer, ArrayList<PlaceModel>> {
 
         private ArrayList<PlaceModel> mPlaceModels = new ArrayList<PlaceModel>();
         private ArrayList<PlacesFavorites> listPlaces = new ArrayList<PlacesFavorites>();
-        private IPlacesDataReceived mIPlacesDataReceived;
-        private PlaceRepositoryFavorites placeRepository;
+        private PlaceViewModelFavorites placeViewModelFavorites;
 
-        public GetPlacesByLocationAsyncTask(IPlacesDataReceived iPlacesDataReceived) {
-            mIPlacesDataReceived = iPlacesDataReceived;
+        public GetPlacesByLocationAsyncTask() {
+
         }
 
         @Override
-        protected IPlacesDataReceived doInBackground(String... urls) {
-            placeRepository = new PlaceRepositoryFavorites(MyApplication.getApplication());
+        protected ArrayList<PlaceModel> doInBackground(String... urls) {
+            placeViewModelFavorites = new PlaceViewModelFavorites(MyApplication.getApplication());
             for (PlaceModel placeModel : mPlaceModels) {
                 try {
                     PlacesFavorites place = new PlacesFavorites(placeModel.getName(), placeModel.getVicinity(), placeModel.getPhotos());
@@ -46,18 +45,14 @@ public class NetworkDataProviderFavorites {
                 }
             }
 
-            placeRepository.insertPlace(listPlaces);
+            placeViewModelFavorites.insertPlace(listPlaces);
 
-            return mIPlacesDataReceived;
+            return mPlaceModels;
         }
 
         @Override
-        protected void onPostExecute(IPlacesDataReceived iPlacesDataReceived_) {
-            try {
-                iPlacesDataReceived_.onPlacesDataReceived(mPlaceModels);
-            } catch (Exception e) {
-                iPlacesDataReceived_.onPlacesDataReceived(mPlaceModels);
-            }
+        protected void onPostExecute(ArrayList<PlaceModel> arrayList) {
+
         }
     }
 
