@@ -40,8 +40,8 @@ public class FavoritesPlaces extends AppCompatActivity {
     private void myRecyclerView() {
         try {
             mAdapterFavorites = new PlacesListAdapterFav(this);
-            recyclerView.setAdapter(mAdapterFavorites);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            recyclerView.setAdapter(mAdapterFavorites);
         } catch (Exception e) {
 
         }
