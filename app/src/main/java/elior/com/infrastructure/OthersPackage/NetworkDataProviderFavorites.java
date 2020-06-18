@@ -22,7 +22,7 @@ public class NetworkDataProviderFavorites {
         getPlacesByLocationAsyncTask.execute();
     }
 
-    private static class GetPlacesByLocationAsyncTask extends AsyncTask<String, Integer, ArrayList<PlaceModel>> {
+    private static class GetPlacesByLocationAsyncTask extends AsyncTask<Void, Integer, ArrayList<PlaceModel>> {
 
         private ArrayList<PlaceModel> mPlaceModels = new ArrayList<PlaceModel>();
         private ArrayList<PlacesFavorites> listPlaces = new ArrayList<PlacesFavorites>();
@@ -33,7 +33,7 @@ public class NetworkDataProviderFavorites {
         }
 
         @Override
-        protected ArrayList<PlaceModel> doInBackground(String... urls) {
+        protected ArrayList<PlaceModel> doInBackground(Void... voids) {
             placeViewModelFavorites = new PlacesViewModelFavorites(MyApplication.getApplication());
             for (PlaceModel placeModel : mPlaceModels) {
                 try {
