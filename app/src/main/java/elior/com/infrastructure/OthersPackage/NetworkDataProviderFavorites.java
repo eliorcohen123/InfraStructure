@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 import elior.com.infrastructure.ModelPackage.PlaceModel;
 import elior.com.infrastructure.RetrofitDaggerPackage.MyApplication;
-import elior.com.infrastructure.RoomFavoritesPackage.PlaceRepositoryFavorites;
 import elior.com.infrastructure.RoomFavoritesPackage.PlaceViewModelFavorites;
 import elior.com.infrastructure.RoomFavoritesPackage.PlacesFavorites;
 
