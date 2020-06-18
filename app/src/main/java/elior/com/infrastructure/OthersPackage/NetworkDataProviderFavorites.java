@@ -4,10 +4,9 @@ import android.os.AsyncTask;
 
 import java.util.ArrayList;
 
-import elior.com.infrastructure.ModelPackage.PlaceModel;
 import elior.com.infrastructure.RetrofitDaggerPackage.MyApplication;
-import elior.com.infrastructure.RoomFavoritesPackage.PlacesViewModelFavorites;
 import elior.com.infrastructure.RoomFavoritesPackage.PlacesFavorites;
+import elior.com.infrastructure.RoomFavoritesPackage.PlacesViewModelFavorites;
 
 public class NetworkDataProviderFavorites {
 
@@ -22,18 +21,17 @@ public class NetworkDataProviderFavorites {
         getPlacesByLocationAsyncTask.execute();
     }
 
-    private static class GetPlacesByLocationAsyncTask extends AsyncTask<Void, Integer, ArrayList<PlaceModel>> {
+    private static class GetPlacesByLocationAsyncTask extends AsyncTask<Void, Integer, ArrayList<PlacesFavorites>> {
 
-        private ArrayList<PlaceModel> mPlaceModels = new ArrayList<PlaceModel>();
         private ArrayList<PlacesFavorites> listPlaces = new ArrayList<PlacesFavorites>();
         private PlacesViewModelFavorites placeViewModelFavorites;
 
         @Override
-        protected ArrayList<PlaceModel> doInBackground(Void... voids) {
+        protected ArrayList<PlacesFavorites> doInBackground(Void... voids) {
             placeViewModelFavorites = new PlacesViewModelFavorites(MyApplication.getApplication());
-            for (PlaceModel placeModel : mPlaceModels) {
+            for (PlacesFavorites placeModel : listPlaces) {
                 try {
-                    PlacesFavorites place = new PlacesFavorites(placeModel.getName(), placeModel.getVicinity(), placeModel.getPhotos());
+                    PlacesFavorites place = new PlacesFavorites(placeModel.getName(), placeModel.getAddress(), placeModel.getPhoto());
                     listPlaces.add(place);
                 } catch (Exception e) {
 
@@ -42,11 +40,11 @@ public class NetworkDataProviderFavorites {
 
             placeViewModelFavorites.insertPlace(listPlaces);
 
-            return mPlaceModels;
+            return listPlaces;
         }
 
         @Override
-        protected void onPostExecute(ArrayList<PlaceModel> arrayList) {
+        protected void onPostExecute(ArrayList<PlacesFavorites> arrayList) {
 
         }
     }
