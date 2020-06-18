@@ -28,10 +28,6 @@ public class NetworkDataProviderFavorites {
         private ArrayList<PlacesFavorites> listPlaces = new ArrayList<PlacesFavorites>();
         private PlacesViewModelFavorites placeViewModelFavorites;
 
-        public GetPlacesByLocationAsyncTask() {
-
-        }
-
         @Override
         protected ArrayList<PlaceModel> doInBackground(Void... voids) {
             placeViewModelFavorites = new PlacesViewModelFavorites(MyApplication.getApplication());
