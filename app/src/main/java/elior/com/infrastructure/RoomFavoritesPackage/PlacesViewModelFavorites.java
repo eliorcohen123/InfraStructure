@@ -7,15 +7,15 @@ import java.util.List;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-public class PlaceViewModelFavorites extends AndroidViewModel {
+public class PlacesViewModelFavorites extends AndroidViewModel {
 
-    private PlaceRepositoryFavorites placeRepositoryFavorites;
+    private PlacesRepositoryFavorites placesRepositoryFavorites;
     private LiveData<List<PlacesFavorites>> mAllPlacesFavorites;
 
-    public PlaceViewModelFavorites(Application application) {
+    public PlacesViewModelFavorites(Application application) {
         super(application);
-        placeRepositoryFavorites = new PlaceRepositoryFavorites(application);
-        mAllPlacesFavorites = placeRepositoryFavorites.getAllPlaces();
+        placesRepositoryFavorites = new PlacesRepositoryFavorites(application);
+        mAllPlacesFavorites = placesRepositoryFavorites.getAllPlaces();
     }
 
     public LiveData<List<PlacesFavorites>> getAllPlaces() {
@@ -23,19 +23,19 @@ public class PlaceViewModelFavorites extends AndroidViewModel {
     }
 
     public void insertPlace(List<PlacesFavorites> placesFavorites) {
-        placeRepositoryFavorites.insertPlace(placesFavorites);
+        placesRepositoryFavorites.insertPlace(placesFavorites);
     }
 
     public void deleteAll() {
-        placeRepositoryFavorites.deleteLastSearch();
+        placesRepositoryFavorites.deleteLastSearch();
     }
 
     public void deletePlace(PlacesFavorites places) {
-        placeRepositoryFavorites.deletePlace(places);
+        placesRepositoryFavorites.deletePlace(places);
     }
 
     public void updatePlace(PlacesFavorites places) {
-        placeRepositoryFavorites.updatePlace(places);
+        placesRepositoryFavorites.updatePlace(places);
     }
 
 }

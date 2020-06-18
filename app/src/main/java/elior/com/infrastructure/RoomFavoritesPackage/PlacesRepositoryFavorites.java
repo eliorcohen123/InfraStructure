@@ -7,12 +7,12 @@ import java.util.List;
 
 import androidx.lifecycle.LiveData;
 
-public class PlaceRepositoryFavorites {
+public class PlacesRepositoryFavorites {
 
     private PlacesDaoFavorites mPlacesDaoFavorites;
     private LiveData<List<PlacesFavorites>> mAllPlacesFavorites;
 
-    public PlaceRepositoryFavorites(Application application) {
+    public PlacesRepositoryFavorites(Application application) {
         PlacesRoomDatabaseFavorites db = PlacesRoomDatabaseFavorites.getDatabase(application);
         mPlacesDaoFavorites = db.placesDao();
         mAllPlacesFavorites = mPlacesDaoFavorites.getAllPlaces();

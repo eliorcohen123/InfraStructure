@@ -16,8 +16,8 @@ import elior.com.infrastructure.ModelPackage.PlaceModel;
 import elior.com.infrastructure.ClassesPackage.FavoritesPlaces;
 import elior.com.infrastructure.R;
 import elior.com.infrastructure.RetrofitDaggerPackage.MyApplication;
-import elior.com.infrastructure.RoomFavoritesPackage.PlaceRepositoryFavorites;
-import elior.com.infrastructure.RoomFavoritesPackage.PlaceViewModelFavorites;
+import elior.com.infrastructure.RoomFavoritesPackage.PlacesRepositoryFavorites;
+import elior.com.infrastructure.RoomFavoritesPackage.PlacesViewModelFavorites;
 import elior.com.infrastructure.RoomFavoritesPackage.PlacesFavorites;
 
 public class PlacesListAdapter extends RecyclerView.Adapter<PlaceViewHolder> {
@@ -25,8 +25,8 @@ public class PlacesListAdapter extends RecyclerView.Adapter<PlaceViewHolder> {
     private final LayoutInflater mInflater;
     private List<PlaceModel> mPlacesSearchList;
     private PlaceModel current;
-    private PlaceViewModelFavorites placeViewModelSearch;
-    private PlaceRepositoryFavorites placeRepositorySearch;
+    private PlacesViewModelFavorites placeViewModelSearch;
+    private PlacesRepositoryFavorites placeRepositorySearch;
     private ArrayList<PlacesFavorites> listPlaces = new ArrayList<>();
 
     public PlacesListAdapter(Context context, List<PlaceModel> placesSearchList) {
@@ -56,7 +56,7 @@ public class PlacesListAdapter extends RecyclerView.Adapter<PlaceViewHolder> {
 
             }
 
-            placeRepositorySearch = new PlaceRepositoryFavorites(MyApplication.getApplication());
+            placeRepositorySearch = new PlacesRepositoryFavorites(MyApplication.getApplication());
             for (PlaceModel placeModel : mPlacesSearchList) {
                 try {
                     PlacesFavorites place = new PlacesFavorites(placeModel.getName(), placeModel.getVicinity(), placeModel.getPhotos());
@@ -66,7 +66,7 @@ public class PlacesListAdapter extends RecyclerView.Adapter<PlaceViewHolder> {
                 }
             }
 
-            placeViewModelSearch = new PlaceViewModelFavorites(MyApplication.getApplication());
+            placeViewModelSearch = new PlacesViewModelFavorites(MyApplication.getApplication());
             placeViewModelSearch.deleteAll();
             placeRepositorySearch.insertPlace(listPlaces);
 

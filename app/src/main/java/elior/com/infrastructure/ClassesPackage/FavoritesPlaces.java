@@ -9,11 +9,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import elior.com.infrastructure.AdapterPackage.PlacesListAdapterFav;
 import elior.com.infrastructure.OthersPackage.NetworkDataProviderFavorites;
 import elior.com.infrastructure.R;
-import elior.com.infrastructure.RoomFavoritesPackage.PlaceViewModelFavorites;
+import elior.com.infrastructure.RoomFavoritesPackage.PlacesViewModelFavorites;
 
 public class FavoritesPlaces extends AppCompatActivity {
 
-    private PlaceViewModelFavorites mPlacesViewModelFavorites;
+    private PlacesViewModelFavorites mPlacesViewModelFavorites;
     private NetworkDataProviderFavorites networkDataProviderFavorites;
     private PlacesListAdapterFav mAdapterFavorites;
     private RecyclerView recyclerView;
@@ -46,7 +46,7 @@ public class FavoritesPlaces extends AppCompatActivity {
 
         }
 
-        mPlacesViewModelFavorites = ViewModelProviders.of(this).get(PlaceViewModelFavorites.class);
+        mPlacesViewModelFavorites = ViewModelProviders.of(this).get(PlacesViewModelFavorites.class);
 
         mPlacesViewModelFavorites.getAllPlaces().observe(this, placesFavorites -> mAdapterFavorites.setPlaces(placesFavorites));
     }

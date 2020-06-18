@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import elior.com.infrastructure.ModelPackage.PlaceModel;
 import elior.com.infrastructure.RetrofitDaggerPackage.MyApplication;
-import elior.com.infrastructure.RoomFavoritesPackage.PlaceViewModelFavorites;
+import elior.com.infrastructure.RoomFavoritesPackage.PlacesViewModelFavorites;
 import elior.com.infrastructure.RoomFavoritesPackage.PlacesFavorites;
 
 public class NetworkDataProviderFavorites {
@@ -26,7 +26,7 @@ public class NetworkDataProviderFavorites {
 
         private ArrayList<PlaceModel> mPlaceModels = new ArrayList<PlaceModel>();
         private ArrayList<PlacesFavorites> listPlaces = new ArrayList<PlacesFavorites>();
-        private PlaceViewModelFavorites placeViewModelFavorites;
+        private PlacesViewModelFavorites placeViewModelFavorites;
 
         public GetPlacesByLocationAsyncTask() {
 
@@ -34,7 +34,7 @@ public class NetworkDataProviderFavorites {
 
         @Override
         protected ArrayList<PlaceModel> doInBackground(String... urls) {
-            placeViewModelFavorites = new PlaceViewModelFavorites(MyApplication.getApplication());
+            placeViewModelFavorites = new PlacesViewModelFavorites(MyApplication.getApplication());
             for (PlaceModel placeModel : mPlaceModels) {
                 try {
                     PlacesFavorites place = new PlacesFavorites(placeModel.getName(), placeModel.getVicinity(), placeModel.getPhotos());
