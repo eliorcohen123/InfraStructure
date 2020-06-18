@@ -14,6 +14,7 @@ public class PlacesViewModelFavorites extends AndroidViewModel {
 
     public PlacesViewModelFavorites(Application application) {
         super(application);
+
         placesRepositoryFavorites = new PlacesRepositoryFavorites(application);
         mAllPlacesFavorites = placesRepositoryFavorites.getAllPlaces();
     }
