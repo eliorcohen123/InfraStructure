@@ -6,14 +6,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import elior.com.infrastructure.AdapterPackage.AdapterPlacesFavorites;
+import elior.com.infrastructure.AdapterPackage.CustomAdapterPlacesFavorites;
 import elior.com.infrastructure.R;
 import elior.com.infrastructure.RoomFavoritesPackage.PlacesViewModelFavorites;
 
 public class FavoritesActivity extends AppCompatActivity {
 
     private PlacesViewModelFavorites mPlacesViewModelFavorites;
-    private AdapterPlacesFavorites mAdapterFavorites;
+    private CustomAdapterPlacesFavorites mAdapterFavorites;
     private RecyclerView recyclerView;
 
     @Override
@@ -31,7 +31,7 @@ public class FavoritesActivity extends AppCompatActivity {
 
     private void myRecyclerView() {
         try {
-            mAdapterFavorites = new AdapterPlacesFavorites(this);
+            mAdapterFavorites = new CustomAdapterPlacesFavorites(this);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
             recyclerView.setAdapter(mAdapterFavorites);
         } catch (Exception e) {

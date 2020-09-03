@@ -21,7 +21,7 @@ import elior.com.infrastructure.RoomFavoritesPackage.PlacesRepositoryFavorites;
 import elior.com.infrastructure.RoomFavoritesPackage.PlacesViewModelFavorites;
 import elior.com.infrastructure.RoomFavoritesPackage.PlacesFavorites;
 
-public class AdapterPlacesMain extends RecyclerView.Adapter<ViewHolderMain> {
+public class CustomAdapterPlacesMain extends RecyclerView.Adapter<ViewHolderMain> {
 
     private final LayoutInflater mInflater;
     private List<Results> mPlacesSearchList;
@@ -29,7 +29,7 @@ public class AdapterPlacesMain extends RecyclerView.Adapter<ViewHolderMain> {
     private PlacesRepositoryFavorites placeRepositorySearch;
     private ArrayList<PlacesFavorites> listPlaces = new ArrayList<>();
 
-    public AdapterPlacesMain(Context context, List<Results> placesSearchList) {
+    public CustomAdapterPlacesMain(Context context, List<Results> placesSearchList) {
         mInflater = LayoutInflater.from(context);
         this.mPlacesSearchList = placesSearchList;
     }

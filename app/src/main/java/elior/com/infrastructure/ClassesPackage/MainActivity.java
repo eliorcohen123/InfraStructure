@@ -11,7 +11,7 @@ import javax.inject.Inject;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import elior.com.infrastructure.AdapterPackage.AdapterPlacesMain;
+import elior.com.infrastructure.AdapterPackage.CustomAdapterPlacesMain;
 import elior.com.infrastructure.ModelPackage.PlaceModel;
 import elior.com.infrastructure.ModelPackage.Results;
 import elior.com.infrastructure.R;
@@ -26,7 +26,7 @@ import rx.schedulers.Schedulers;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private AdapterPlacesMain adapterPlacesMain;
+    private CustomAdapterPlacesMain customAdapterPlacesMain;
     private ArrayList<Results> mPlaceList;
     @Inject
     Retrofit retrofit;
@@ -72,9 +72,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void generateDataList(List<Results> photoList) {
         mPlaceList = new ArrayList<Results>(photoList);
-        adapterPlacesMain = new AdapterPlacesMain(this, mPlaceList);
+        customAdapterPlacesMain = new CustomAdapterPlacesMain(this, mPlaceList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapterPlacesMain);
+        recyclerView.setAdapter(customAdapterPlacesMain);
     }
 
 }

@@ -14,12 +14,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import elior.com.infrastructure.R;
 import elior.com.infrastructure.RoomFavoritesPackage.PlacesFavorites;
 
-public class AdapterPlacesFavorites extends RecyclerView.Adapter<ViewHolderFavorites> {
+public class CustomAdapterPlacesFavorites extends RecyclerView.Adapter<ViewHolderFavorites> {
 
     private final LayoutInflater mInflater;
     private List<PlacesFavorites> mPlacesFavoritesList;
 
-    public AdapterPlacesFavorites(Context context) {
+    public CustomAdapterPlacesFavorites(Context context) {
         mInflater = LayoutInflater.from(context);
     }
 
