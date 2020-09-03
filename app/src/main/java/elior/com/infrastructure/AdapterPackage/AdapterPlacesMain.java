@@ -11,39 +11,40 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import elior.com.infrastructure.ModelPackage.PlaceModel;
-import elior.com.infrastructure.ClassesPackage.FavoritesPlaces;
+import elior.com.infrastructure.ModelPackage.Results;
+import elior.com.infrastructure.ClassesPackage.FavoritesActivity;
 import elior.com.infrastructure.R;
 import elior.com.infrastructure.RetrofitDaggerPackage.MyApplication;
 import elior.com.infrastructure.RoomFavoritesPackage.PlacesRepositoryFavorites;
 import elior.com.infrastructure.RoomFavoritesPackage.PlacesViewModelFavorites;
 import elior.com.infrastructure.RoomFavoritesPackage.PlacesFavorites;
 
-public class PlacesListAdapter extends RecyclerView.Adapter<PlaceViewHolder> {
+public class AdapterPlacesMain extends RecyclerView.Adapter<ViewHolderMain> {
 
     private final LayoutInflater mInflater;
-    private List<PlaceModel> mPlacesSearchList;
-    private PlaceModel current;
+    private List<Results> mPlacesSearchList;
     private PlacesViewModelFavorites placeViewModelSearch;
     private PlacesRepositoryFavorites placeRepositorySearch;
     private ArrayList<PlacesFavorites> listPlaces = new ArrayList<>();
 
-    public PlacesListAdapter(Context context, List<PlaceModel> placesSearchList) {
+    public AdapterPlacesMain(Context context, List<Results> placesSearchList) {
         mInflater = LayoutInflater.from(context);
         this.mPlacesSearchList = placesSearchList;
     }
 
+    @NonNull
     @Override
-    public PlaceViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = mInflater.inflate(R.layout.recyclerview_item_total, parent, false);
-        return new PlaceViewHolder(itemView);
+    public ViewHolderMain onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemView = mInflater.inflate(R.layout.adapter_places, parent, false);
+        return new ViewHolderMain(itemView);
     }
 
     @Override
-    public void onBindViewHolder(PlaceViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull ViewHolderMain holder, final int position) {
         if (mPlacesSearchList != null) {
-            current = mPlacesSearchList.get(position);
+            Results current = mPlacesSearchList.get(position);
             holder.name1.setText(current.getName());
             holder.address1.setText(current.getVicinity());
             try {
@@ -57,9 +58,9 @@ public class PlacesListAdapter extends RecyclerView.Adapter<PlaceViewHolder> {
             }
 
             placeRepositorySearch = new PlacesRepositoryFavorites(MyApplication.getApplication());
-            for (PlaceModel placeModel : mPlacesSearchList) {
+            for (Results results : mPlacesSearchList) {
                 try {
-                    PlacesFavorites place = new PlacesFavorites(placeModel.getName(), placeModel.getVicinity(), placeModel.getPhotos());
+                    PlacesFavorites place = new PlacesFavorites(results.getName(), results.getVicinity(), results.getPhotos());
                     listPlaces.add(place);
                 } catch (Exception e) {
 
@@ -71,7 +72,7 @@ public class PlacesListAdapter extends RecyclerView.Adapter<PlaceViewHolder> {
             placeRepositorySearch.insertPlace(listPlaces);
 
             holder.relativeLayout1.setOnClickListener(v -> {
-                Intent intent = new Intent(mInflater.getContext(), FavoritesPlaces.class);
+                Intent intent = new Intent(mInflater.getContext(), FavoritesActivity.class);
                 mInflater.getContext().startActivity(intent);
             });
         } else {

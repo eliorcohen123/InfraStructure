@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ClassesPackage.FavoritesPlaces" />
+        <activity android:name=".ClassesPackage.FavoritesActivity" />
     </application>
 
 </manifest>

@@ -8,13 +8,13 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import elior.com.infrastructure.R;
 
-public class PlaceViewHolderFav extends RecyclerView.ViewHolder {
+public class ViewHolderFavorites extends RecyclerView.ViewHolder {
 
     public TextView name1, address1;
     public ImageView image1;
     public RelativeLayout relativeLayout1;
 
-    public PlaceViewHolderFav(View itemView) {
+    public ViewHolderFavorites(View itemView) {
         super(itemView);
 
         name1 = itemView.findViewById(R.id.name1);

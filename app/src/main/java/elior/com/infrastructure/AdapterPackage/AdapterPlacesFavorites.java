@@ -9,30 +9,31 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import elior.com.infrastructure.R;
 import elior.com.infrastructure.RoomFavoritesPackage.PlacesFavorites;
 
-public class PlacesListAdapterFav extends RecyclerView.Adapter<PlaceViewHolderFav> {
+public class AdapterPlacesFavorites extends RecyclerView.Adapter<ViewHolderFavorites> {
 
     private final LayoutInflater mInflater;
     private List<PlacesFavorites> mPlacesFavoritesList;
-    private PlacesFavorites current;
 
-    public PlacesListAdapterFav(Context context) {
+    public AdapterPlacesFavorites(Context context) {
         mInflater = LayoutInflater.from(context);
     }
 
+    @NonNull
     @Override
-    public PlaceViewHolderFav onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = mInflater.inflate(R.layout.recyclerview_item_total, parent, false);
-        return new PlaceViewHolderFav(itemView);
+    public ViewHolderFavorites onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemView = mInflater.inflate(R.layout.adapter_places, parent, false);
+        return new ViewHolderFavorites(itemView);
     }
 
     @Override
-    public void onBindViewHolder(PlaceViewHolderFav holder, final int position) {
+    public void onBindViewHolder(@NonNull ViewHolderFavorites holder, final int position) {
         if (mPlacesFavoritesList != null) {
-            current = mPlacesFavoritesList.get(position);
+            PlacesFavorites current = mPlacesFavoritesList.get(position);
             holder.name1.setText(current.getName());
             holder.address1.setText(current.getAddress());
             try {
